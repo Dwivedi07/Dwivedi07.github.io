@@ -140,3 +140,8 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+heading {
+  font-size: 28px;
+  font-weight: bold; /* Optional: Make the text bold */
+}
