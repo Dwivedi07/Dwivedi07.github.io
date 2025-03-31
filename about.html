@@ -3,40 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arpit Dwivedi - Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #333333;
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-        nav {
-            margin-top: 30px;
-        }
-        nav a {
-            margin: 10px;
-            text-decoration: none;
-            color: #1772d0;
-            font-size: 20px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Arpit Dwivedi</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <h1>Welcome to Arpit Dwivedi's Website</h1>
-    <p>Hi! I am a master's student in Aeronautics and Astronautics Engineering at Stanford University.</p>
-    <p>Feel free to explore my work and research!</p>
-
     <nav>
-        <a href="about.html">About Me</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Contact</a>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="cv.html">CV</a></li>
+        </ul>
     </nav>
 
+    <header>
+        <h1>Arpit Dwivedi</h1>
+        <p>Hi there! Thank you for your interest in my profile!</p>
+    </header>
+
+    <main>
+        <section>
+            <p>I'm a master's student in Aeronautics and Astronautics Engineering at 
+                <a href="https://www.stanford.edu/">Stanford University</a>. I am currently doing research in the 
+                <a href="https://stanfordasl.github.io/">Autonomous Systems Lab</a> advised by Professor 
+                <a href="https://stanfordasl.github.io/people/prof-marco-pavone/">Marco Pavone</a>.
+            </p>
+            <p>Before Stanford, I completed my B. Tech. in Mechanical Engineering with Honors and a minor in 
+                Artificial Intelligence and Data Science at 
+                <a href="https://www.iitb.ac.in/">Indian Institute of Technology Bombay</a>, India. During this time, I worked with 
+                Professor <a href="https://www.ee.iitb.ac.in/web/people/dwaipayan-mukherjee/">Dwaipayan Mukherjee</a> in the 
+                Controls and Computing Lab. My research interests lie at the intersection of Control Theory, 
+                Machine Learning, and Decision Making, with a particular focus on autonomous driving and space vehicles.
+            </p>
+            <p>Please feel free to reach out!</p>
+        </section>
+
+        <section class="contact">
+            <p>
+                <a href="mailto:dwivedi7@stanford.edu">Email</a> &nbsp;/&nbsp;
+                <a href="data/ArpitDwivedi-CV.pdf">CV</a> &nbsp;/&nbsp;
+                <a href="https://scholar.google.com/citations?user=bTxIik4AAAAJ&hl=en">Scholar</a> &nbsp;/&nbsp;
+                <a href="https://github.com/Dwivedi07/">Github</a>
+            </p>
+        </section>
+    </main>
 </body>
 </html>
