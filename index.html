@@ -16,6 +16,7 @@
   <meta property="og:url" content="https://dwivedi07.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- /* ===== Style ===== */ -->
   <style>
     /* 1) Restore the original thumbnail rule (keeps your structure identical) */
     .card .thumb {
@@ -45,6 +46,22 @@
         border-bottom: 1px solid var(--border);
       }
     }
+    /* ===== Reset / base ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    color: var(--text);
+    background: radial-gradient(1200px 600px at 10% -10%, rgba(23,114,208,.18), transparent 40%),
+    radial-gradient(900px 600px at 110% 10%, rgba(124,196,255,.12), transparent 50%),
+    var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:visited { color: var(--link-visited); }
+    img { max-width: 100%; height: auto; border-radius: 12px; }
 
     /* ===== Layout ===== */
     .container { max-width: var(--maxw); margin-inline: auto; padding: 24px; }
