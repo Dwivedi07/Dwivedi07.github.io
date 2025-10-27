@@ -30,18 +30,12 @@
       --shadow: 0 6px 20px rgba(0,0,0,.35);
       --radius: 16px;
       --maxw: 1000px;
+      --thumb-ar: 16/9;        /* default aspect ratio for media thumbs */
+      --thumb-h-m: 190px;       /* mobile thumb height cap for photos */
+      --logo-h-m: 110px;        /* mobile thumb height cap for logos  */
     }
     @media (prefers-color-scheme: light) {
       :root { --bg:#ffffff; --panel:#fafafa; --text:#101418; --muted:#515c6a; --border:#e6e8ec; --shadow:0 10px 30px rgba(0,0,0,.06); }
-    }
-    /* Logos inside cards: show full logo, no cropping */
-    .card .thumb.logo {
-      object-fit: contain;      /* show full logo */
-      background: transparent;  /* avoid letterbox lines */
-      padding: 12px;            /* breathing room */
-      max-height: 120px;        /* keeps card compact */
-      width: 220px;             /* same column width as photos */
-      border-right: 1px solid var(--border);
     }
 
     /* ===== Reset / base ===== */
@@ -59,7 +53,7 @@
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
     a:visited { color: var(--link-visited); }
-    img { max-width: 100%; height: auto; border-radius: 12px; }
+    img { max-width: 100%; height: auto; border-radius: 12px; display: block; }
 
     /* ===== Layout ===== */
     .container { max-width: var(--maxw); margin-inline: auto; padding: 24px; }
@@ -67,13 +61,7 @@
     .panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
     .pad { padding: 20px; }
     .grid { display: grid; gap: 16px; }
-    .grid.cols-2 { grid-template-columns: 1fr 1fr; }
     .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
-
-    @media (max-width: 880px) {
-      .grid.cols-2, .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; }
-    }
 
     /* ===== Header ===== */
     .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; }
@@ -82,20 +70,47 @@
     h1 { font-size: clamp(28px, 4vw, 40px); margin: 0; letter-spacing: .3px; }
     .lead { color: var(--muted); margin: 6px 0 0; }
 
-    .links { display:flex; flex-wrap: wrap; gap: 10px 16px; align-items:center; }
-    .chip { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:transparent; }
+    .links { display:flex; flex-wrap: wrap; gap: 10px 12px; align-items:center; }
+    .chip { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:transparent; cursor:pointer; }
 
     /* ===== Sections ===== */
     .section-title { font-size: 22px; margin: 0 0 10px; }
-    .card { display:flex; gap:16px; border:1px solid var(--border); border-radius: 14px; background: linear-gradient(180deg, var(--panel), color-mix(in oklab, var(--panel), #000 6%)); overflow: clip; }
-    .card .thumb { width: 220px; max-width: 38%; object-fit: cover; border-right:1px solid var(--border); }
+    .card {
+      display:flex; gap:16px;
+      border:1px solid var(--border); border-radius: 14px;
+      background: linear-gradient(180deg, var(--panel), color-mix(in oklab, var(--panel), #000 6%));
+      overflow: clip;
+    }
+
+    /* Media thumbnails default: side thumbnail on wide screens */
+    .card .thumb {
+      width: 220px;            /* side column width on desktop */
+      max-width: 38%;
+      aspect-ratio: var(--thumb-ar);
+      height: auto;
+      object-fit: cover;
+      border-right:1px solid var(--border);
+      border-bottom:0;
+      margin: 0;
+    }
+    /* Logos inside cards: show full logo, no cropping */
+    .card .thumb.logo {
+      object-fit: contain;
+      background: transparent;
+      padding: 12px;
+      /* Keep the same column width on desktop */
+      width: 220px;
+      max-height: 120px;
+      border-right: 1px solid var(--border);
+    }
+
     .card-body { padding: 16px; }
     .meta { color: var(--muted); font-size: 14px; }
     .title { font-weight: 600; font-size: 18px; margin: 2px 0 6px; }
     .badge { display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--border); border-radius:8px; color: var(--muted); }
 
     .affil { text-align:center; padding:16px; border:1px solid var(--border); border-radius: 14px; background: var(--panel); }
-    .affil img { max-height: 70px; object-fit: contain; background: #fff0; }
+    .affil img { max-height: 70px; object-fit: contain; background: #fff0; margin-inline:auto; }
 
     /* ===== Footer ===== */
     footer { color: var(--muted); font-size: 14px; text-align: right; }
@@ -103,6 +118,56 @@
     /* ===== Utilities ===== */
     .nowrap { white-space: nowrap; }
     .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
+
+    /* ===== Responsive (true mobile) ===== */
+    @media (max-width: 880px) {
+      .grid.cols-3 { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; }
+      .avatar { width: 88px; }
+      .links { gap: 8px 10px; }
+
+      .card { flex-direction: column; }
+      .card .thumb {
+        width: 100%;
+        max-width: 100%;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        /* Keep media from getting “too tall” on phones */
+        aspect-ratio: var(--thumb-ar);
+        max-height: var(--thumb-h-m);
+      }
+      .card .thumb.logo {
+        /* Logos should never be tall/zoomed; contain them */
+        aspect-ratio: auto;
+        max-height: var(--logo-h-m);
+        height: var(--logo-h-m);
+        padding: 10px;
+        object-fit: contain;
+      }
+    }
+
+    /* ===== Desktop Mobile-Preview mode =====
+       When body has [data-preview="mobile"], we *force* mobile styles
+       (useful to test on desktop). We simulate a phone width and apply
+       the same stacking rules. */
+    body[data-preview="mobile"] .container { max-width: 420px; }
+    body[data-preview="mobile"] .grid.cols-3 { grid-template-columns: 1fr; }
+    body[data-preview="mobile"] .card { flex-direction: column; }
+    body[data-preview="mobile"] .card .thumb {
+      width: 100%;
+      max-width: 100%;
+      border-right: 0;
+      border-bottom: 1px solid var(--border);
+      aspect-ratio: var(--thumb-ar);
+      max-height: var(--thumb-h-m);
+    }
+    body[data-preview="mobile"] .card .thumb.logo {
+      aspect-ratio: auto;
+      max-height: var(--logo-h-m);
+      height: var(--logo-h-m);
+      padding: 10px;
+      object-fit: contain;
+    }
 
     /* Print (nice single column) */
     @media print {
@@ -152,6 +217,8 @@
           <!-- <a class="chip" href="data/ArpitDwivedi-CV.pdf">CV</a> -->
           <a class="chip" href="https://scholar.google.com/citations?user=bTxIik4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
           <a class="chip" href="https://github.com/Dwivedi07/" target="_blank" rel="noopener">GitHub</a>
+          <!-- Mobile preview toggle -->
+          <button class="chip" id="viewToggle" aria-pressed="false" title="Toggle mobile preview">📱 Mobile preview</button>
         </nav>
       </div>
     </header>
@@ -224,15 +291,15 @@
 
       <!-- ===== Professional Experience ===== -->
       <section class="panel pad">
-      <h2 class="section-title">Professional Experience</h2>
-      <article class="card">
-      <img class="thumb logo" src="images/Rivian_Logo_Alternative_1.png" alt="Rivian internship" loading="lazy" />
-      <div class="card-body">
-      <div class="title" style="color:var(--accent)">Software Engineering Intern — Autonomy, Rivian Automotive</div>
-      <div class="meta">Summer 2025</div>
-      <p>Developing and testing autonomy stack modules for Rivian's vehicles, focusing on perception‑planning integration and robust performance for real‑world deployment.</p>
-      </div>
-      </article>
+        <h2 class="section-title">Professional Experience</h2>
+        <article class="card">
+          <img class="thumb logo" src="images/Rivian_Logo_Alternative_1.png" alt="Rivian internship" loading="lazy" />
+          <div class="card-body">
+            <div class="title" style="color:var(--accent)">Software Engineering Intern — Autonomy, Rivian Automotive</div>
+            <div class="meta">Summer 2025</div>
+            <p>Developing and testing autonomy stack modules for Rivian's vehicles, focusing on perception-planning integration and robust performance for real-world deployment.</p>
+          </div>
+        </article>
       </section>
 
       <!-- ===== Research Experience ===== -->
@@ -241,11 +308,9 @@
         <article class="card">
           <img class="thumb" src="images/snakeclip.gif" alt="Snake robot locomotion clip" loading="lazy" />
           <div class="card-body">
-            <div class="title" style="color:var(--accent)">Decentralized Control Strategy for Path‑Following in Snake Robots</div>
+            <div class="title" style="color:var(--accent)">Decentralized Control Strategy for Path-Following in Snake Robots</div>
             <div class="meta">Arpit Dwivedi, Hemanta Hazarika, Dwaipayan Mukherjee, Debasattam Pal • CoDIT 2025 — <span class="badge">Accepted</span></div>
-            <p>
-              Designed a modular snake robot and proposed a decentralized path‑following controller exploiting local link autonomy to track general curves smoothly.
-            </p>
+            <p>Designed a modular snake robot and proposed a decentralized path-following controller exploiting local link autonomy to track general curves smoothly.</p>
           </div>
         </article>
 
@@ -254,9 +319,7 @@
           <div class="card-body">
             <a class="title" href="https://ieeexplore.ieee.org/abstract/document/10684343" target="_blank" rel="noopener">Floating Offshore Wind Farm Control via Turbine Repositioning</a>
             <div class="meta">Yue Niu, <strong>Arpit Dwivedi</strong>, Joel Sathiraj, Parth P. Lathi, Ryozo Nagamune • <em>IEEE Control Systems</em>, Oct 2024</div>
-            <p>
-              Research intern @ UBC Control Engineering Lab. Repositioning strategies that unlock unique potential of floating offshore wind farms.
-            </p>
+            <p>Research intern @ UBC Control Engineering Lab. Repositioning strategies that unlock unique potential of floating offshore wind farms.</p>
             <p><a href="https://ieeexplore.ieee.org/abstract/document/10684343" target="_blank" rel="noopener">Paper</a></p>
           </div>
         </article>
@@ -264,11 +327,9 @@
         <article class="card" style="margin-top:12px;">
           <img class="thumb" src="images/GA.png" alt="Genetic algorithm coverage graphic" loading="lazy" />
           <div class="card-body">
-            <a class="title" href="https://link.springer.com/book/10.1007/978-981-96-1158-4" target="_blank" rel="noopener">Coverage Maximization for UAV Surveillance on Non‑convex Domains using GA</a>
+            <a class="title" href="https://link.springer.com/book/10.1007/978-981-96-1158-4" target="_blank" rel="noopener">Coverage Maximization for UAV Surveillance on Non-convex Domains using GA</a>
             <div class="meta"><strong>Arpit Dwivedi</strong>, Chinmay Pimpalkhare • Advances in Multidisciplinary Design, Analysis and Optimization (NCMDAO), 2023</div>
-            <p>
-              This work develops a UAV surveillance framework for disaster management, focusing on maximizing coverage in non-convex and disconnected regions. The framework processes input images, extracts boundaries, and reduces complexity by approximating space as a union of polygons. A genetic algorithm with Monte Carlo sampling optimizes sensor configurations, leveraging problem geometry for efficient coverage.
-            </p>
+            <p>This work develops a UAV surveillance framework for disaster management, focusing on maximizing coverage in non-convex and disconnected regions. The framework processes input images, extracts boundaries, and reduces complexity by approximating space as a union of polygons. A genetic algorithm with Monte Carlo sampling optimizes sensor configurations, leveraging problem geometry for efficient coverage.</p>
             <p><a href="https://github.com/Dwivedi07/Rescue_Robot_Optimization" target="_blank" rel="noopener">Code</a> · <a href="https://doi.org/10.1007/978-981-96-1158-4_46" target="_blank" rel="noopener">Paper</a></p>
           </div>
         </article>
@@ -276,8 +337,8 @@
         <article class="card" style="margin-top:12px;">
           <img class="thumb" src="images/sedrica.png" alt="UMIC SeDriCa ego vehicle" loading="lazy" />
           <div class="card-body">
-            <a class="title" href="https://umiciitb.org/" target="_blank" rel="noopener">UMIC‑SeDriCa: Student Technical Team</a>
-            <div class="meta">Controls Engineer (2022–2024) • Deployed Nonlinear MPC and performed real‑time testing on an AV platform.</div>
+            <a class="title" href="https://umiciitb.org/" target="_blank" rel="noopener">UMIC-SeDriCa: Student Technical Team</a>
+            <div class="meta">Controls Engineer (2022–2024) • Deployed Nonlinear MPC and performed real-time testing on an AV platform.</div>
             <p><a href="https://umiciitb.org/" target="_blank" rel="noopener">Website</a></p>
           </div>
         </article>
@@ -286,7 +347,7 @@
           <img class="thumb" src="images/jet.jpg" alt="Jet impingement visualization" loading="lazy" />
           <div class="card-body">
             <a class="title" href="https://github.com/Dwivedi07/Jet_Impingement_Conical_Surface" target="_blank" rel="noopener">Jet Impingement Heat Transfer</a>
-            <div class="meta">ANSYS Fluent simulations for cylindrical jet on flat and conical plates; validated Nusselt profiles against in‑house experiments.</div>
+            <div class="meta">ANSYS Fluent simulations for cylindrical jet on flat and conical plates; validated Nusselt profiles against in-house experiments.</div>
             <p><a href="https://github.com/Dwivedi07/Jet_Impingement_Conical_Surface" target="_blank" rel="noopener">Repository</a></p>
           </div>
         </article>
@@ -297,20 +358,19 @@
         <h2 class="section-title">Key Projects</h2>
 
         <article class="card">
-          <!-- <img class="thumb logo" src="images/Rivian_Logo_Alternative_1.png" alt="Rivian internship" loading="lazy" /> -->
-          <img class="thumb logo" src="images/right.png" alt="End‑to‑end planning illustration" loading="lazy" />
+          <img class="thumb logo" src="images/right.png" alt="End-to-end planning illustration" loading="lazy" />
           <div class="card-body">
-            <div class="title" style="color:var(--accent)">Vision‑Based End‑to‑End Planning for AVs</div>
-            <div class="meta">Transformer vision encoder + LSTM trajectories; intent‑aware planning on Waymo Open Dataset.</div>
+            <div class="title" style="color:var(--accent)">Vision-Based End-to-End Planning for AVs</div>
+            <div class="meta">Transformer vision encoder + LSTM trajectories; intent-aware planning on Waymo Open Dataset.</div>
             <p><a href="https://cs231n.stanford.edu/2025/papers/text_file_840589978-final_report.pdf" target="_blank" rel="noopener">Report</a></p>
           </div>
         </article>
 
         <article class="card" style="margin-top:12px;">
-          <img class="thumb" src="images/multi.png" alt="Multi‑robot navigation graphic" loading="lazy" />
+          <img class="thumb" src="images/multi.png" alt="Multi-robot navigation graphic" loading="lazy" />
           <div class="card-body">
             <a class="title" href="https://github.com/rohangarg2001/multi-robot-navigation" target="_blank" rel="noopener">Multirobot Navigation Under Uncertainty</a>
-            <div class="meta">POMCP‑DPW controller for lunar exploration scenarios.</div>
+            <div class="meta">POMCP-DPW controller for lunar exploration scenarios.</div>
             <p><a href="https://github.com/rohangarg2001/multi-robot-navigation" target="_blank" rel="noopener">Code</a> · <a href="https://github.com/rohangarg2001/multi-robot-navigation/blob/main/AA228_FINAL_REPORT.pdf" target="_blank" rel="noopener">PDF</a></p>
           </div>
         </article>
@@ -325,9 +385,9 @@
         </article>
 
         <article class="card" style="margin-top:12px;">
-          <img class="thumb" src="images/PickandPlaceArm.gif" alt="Vision‑based pick‑and‑place manipulator" loading="lazy" />
+          <img class="thumb" src="images/PickandPlaceArm.gif" alt="Vision-based pick-and-place manipulator" loading="lazy" />
           <div class="card-body">
-            <div class="title" style="color:var(--accent)">Vision‑based Pick & Place Manipulator</div>
+            <div class="title" style="color:var(--accent)">Vision-based Pick & Place Manipulator</div>
             <div class="meta">Implemented a vision-based pick-and-place system that demonstrated object detection and manipulation capabilities. A U-Net-based segmentation model was implemented, achieving a mean Intersection over Union (mIoU) of 96% for accurate feature delineation in 2D images. Additionally, an end-to-end grasping algorithm utilizing grasping affordance maps was deployed to enhance object handling precision and reliability.</div>
           </div>
         </article>
@@ -353,5 +413,44 @@
       <p>Thanks to <a href="https://jonbarron.info/" target="_blank" rel="noopener">Jon Barron</a> for the original inspiration. <span aria-hidden="true">•</span> Last updated <time datetime="2025-10-26">Oct 26, 2025</time>.</p>
     </footer>
   </div>
+
+  <!-- Mobile preview toggle logic -->
+  <script>
+    (function () {
+      const key = 'preview-mode';
+      const btn = document.getElementById('viewToggle');
+
+      function setMode(mode) {
+        if (mode === 'mobile') {
+          document.body.setAttribute('data-preview', 'mobile');
+          btn.setAttribute('aria-pressed', 'true');
+          btn.textContent = '💻 Desktop preview';
+          localStorage.setItem(key, 'mobile');
+        } else {
+          document.body.removeAttribute('data-preview');
+          btn.setAttribute('aria-pressed', 'false');
+          btn.textContent = '📱 Mobile preview';
+          localStorage.setItem(key, 'desktop');
+        }
+      }
+
+      // Initial state from query param or localStorage
+      const params = new URLSearchParams(location.search);
+      const qp = params.get('preview');
+      const saved = localStorage.getItem(key);
+
+      if (qp === 'mobile' || saved === 'mobile') {
+        setMode('mobile');
+      } else {
+        setMode('desktop');
+      }
+
+      // Toggle on click
+      btn.addEventListener('click', () => {
+        const isMobile = document.body.getAttribute('data-preview') === 'mobile';
+        setMode(isMobile ? 'desktop' : 'mobile');
+      });
+    })();
+  </script>
 </body>
 </html>
