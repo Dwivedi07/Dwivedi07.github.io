@@ -17,36 +17,32 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-    /* Add a shared thumbnail height token */
-    :root {
-      --thumb-h: 180px; /* adjust to taste (160–220px usually looks good) */
-    }
-    
-    /* Replace the existing .card .thumb rule with this */
+    /* 1) Restore the original thumbnail rule (keeps your structure identical) */
     .card .thumb {
-      width: clamp(160px, 32vw, 220px);
+      width: 220px;
       max-width: 38%;
-      height: var(--thumb-h);
-      object-fit: contain;              /* show full image without cropping */
-      background: color-mix(in oklab, var(--panel), #000 6%); /* subtle letterbox */
+      object-fit: cover;            /* original behavior */
       border-right: 1px solid var(--border);
-      padding: 8px;                     /* breathing room for logos/GIFs */
-      border-radius: 0;                 /* keep edges clean inside card */
     }
     
-    /* Keep cards aligned even with varied image proportions */
-    .card { align-items: stretch; }
+    /* 2) Non-destructive override: show full image for logos/GIFs only */
+    .card img.thumb[alt*="logo" i],
+    .card img.thumb[alt*="gif" i],
+    .card img.thumb[alt*="animation" i],
+    .card img.thumb[alt*="badge" i],
+    .card img.thumb[alt*="icon" i] {
+      object-fit: contain;          /* show full image without cropping */
+      background: color-mix(in oklab, var(--panel), #000 6%); /* subtle letterbox */
+      padding: 6px;                 /* breathing room */
+    }
     
-    /* On small screens, make the thumb span full width above text */
+    /* Optional: on small screens, keep things tidy */
     @media (max-width: 880px) {
       .card .thumb {
         width: 100%;
         max-width: 100%;
-        height: auto;                   /* let height follow intrinsic ratio */
-        aspect-ratio: auto;             /* remove fixed ratio on mobile */
         border-right: 0;
         border-bottom: 1px solid var(--border);
-        padding: 6px;
       }
     }
 
