@@ -16,47 +16,36 @@
   <meta property="og:url" content="https://dwivedi07.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- /* ===== Style ===== */ -->
   <style>
-    /* 1) Restore the original thumbnail rule (keeps your structure identical) */
-    .card .thumb {
-      width: 220px;
-      max-width: 38%;
-      object-fit: cover;            /* original behavior */
-      border-right: 1px solid var(--border);
+    /* ===== Design tokens ===== */
+    :root {
+      --bg: #0f1115;
+      --panel: #161a22;
+      --text: #e6e6e6;
+      --muted: #a6adbb;
+      --link: #7cc4ff;
+      --link-visited: #bfa3ff;
+      --accent: #1772d0;
+      --border: #292f3a;
+      --shadow: 0 6px 20px rgba(0,0,0,.35);
+      --radius: 16px;
+      --maxw: 1000px;
     }
-    
-    /* 2) Non-destructive override: show full image for logos/GIFs only */
-    .card img.thumb[alt*="logo" i],
-    .card img.thumb[alt*="gif" i],
-    .card img.thumb[alt*="animation" i],
-    .card img.thumb[alt*="badge" i],
-    .card img.thumb[alt*="icon" i] {
-      object-fit: contain;          /* show full image without cropping */
-      background: color-mix(in oklab, var(--panel), #000 6%); /* subtle letterbox */
-      padding: 6px;                 /* breathing room */
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#ffffff; --panel:#fafafa; --text:#101418; --muted:#515c6a; --border:#e6e8ec; --shadow:0 10px 30px rgba(0,0,0,.06); }
     }
-    
-    /* Optional: on small screens, keep things tidy */
-    @media (max-width: 880px) {
-      .card .thumb {
-        width: 100%;
-        max-width: 100%;
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
-      }
-    }
+
     /* ===== Reset / base ===== */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
-    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-    color: var(--text);
-    background: radial-gradient(1200px 600px at 10% -10%, rgba(23,114,208,.18), transparent 40%),
-    radial-gradient(900px 600px at 110% 10%, rgba(124,196,255,.12), transparent 50%),
-    var(--bg);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(23,114,208,.18), transparent 40%),
+                  radial-gradient(900px 600px at 110% 10%, rgba(124,196,255,.12), transparent 50%),
+                  var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
