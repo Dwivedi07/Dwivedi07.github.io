@@ -1,363 +1,334 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arpit Dwivedi — Research & Projects</title>
+  <meta name="description" content="Arpit Dwivedi — MS AeroAstro at Stanford. Research: control theory, machine learning, decision making for autonomous driving and space vehicles." />
+  <meta name="author" content="Arpit Dwivedi" />
+  <link rel="icon" href="images/favicon/favicon.ico" />
 
-    <title>Arpit Dwivedi</title>
+  <!-- Open Graph / Twitter for prettier link shares -->
+  <meta property="og:title" content="Arpit Dwivedi — Research & Projects" />
+  <meta property="og:description" content="Control Theory × Machine Learning × Decision Making | AVs & Space" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/ArpitDwivedi.jpg" />
+  <meta property="og:url" content="https://dwivedi07.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <meta name="author" content="Arpit Dwivedi">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-  </head>
+  <style>
+    /* ===== Design tokens ===== */
+    :root {
+      --bg: #0f1115;
+      --panel: #161a22;
+      --text: #e6e6e6;
+      --muted: #a6adbb;
+      --link: #7cc4ff;
+      --link-visited: #bfa3ff;
+      --accent: #1772d0;
+      --border: #292f3a;
+      --shadow: 0 6px 20px rgba(0,0,0,.35);
+      --radius: 16px;
+      --maxw: 1000px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#ffffff; --panel:#fafafa; --text:#101418; --muted:#515c6a; --border:#e6e8ec; --shadow:0 10px 30px rgba(0,0,0,.06); }
+    }
 
-  <body style="background-color: #333333; color: white;">
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Arpit Dwivedi
-                </p>
-                <p>Hi there! Thank you for your interest in my profile! 
-                </p>
-                <p> I'm a master's student in Aeronautics and Astronautics Engineering at <a href = 'https://www.stanford.edu/'> Stanford University</a>. I am currently doing research in the <a href='https://stanfordasl.github.io/'> Autonomous Systems Lab </a> advised by Professor <a href = 'https://stanfordasl.github.io/people/prof-marco-pavone/'> Marco Pavone</a>.
-                </p>
-                <p>
-                  Before Stanford, I completed my B. Tech. in Mechanical Engineering with Honors and a minor in Artificial Intelligence and Data Science at <a href='https://www.iitb.ac.in/'>Indian Institute of Technology Bombay</a>, India. During this time, I worked with Professor <a href='https://www.ee.iitb.ac.in/web/people/dwaipayan-mukherjee/'>Dwaipayan Mukherjee</a> in the Controls and Computing Lab. My research interests lie at the intersection of Control Theory, Machine Learning, and Decision Making, with a particular focus on autonomous driving and space vehicles.</p>
-              <p>Please feel free to reach out!</p>
-                <p style="text-align:center">
-                  <a href="mailto:dwivedi7@stanford.edu">Email</a> &nbsp;/&nbsp;
-<!--                   <a href="data/ArpitDwivedi-CV.pdf">CV</a> &nbsp;/&nbsp; -->
-                  <!-- <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp; -->
-                  <a href="https://scholar.google.com/citations?user=bTxIik4AAAAJ&hl=en">Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/Dwivedi07/">Github</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/ArpitDwivedi.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/ArpitDwivedi.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
+    /* ===== Reset / base ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(23,114,208,.18), transparent 40%),
+                  radial-gradient(900px 600px at 110% 10%, rgba(124,196,255,.12), transparent 50%),
+                  var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:visited { color: var(--link-visited); }
+    img { max-width: 100%; height: auto; border-radius: 12px; }
 
-          
-<!-- New row for logos -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:20px;margin-bottom:20px;"><tbody>
-            <tr style="text-align:center;">
-              <td style="padding:10px;">
-                <img src="images/stanfordlogo.png" alt="Affiliation Logo 2" style="max-width:200px;max-height:150px;">
-                <p style="margin-top:5px;">M.S. in AeroAstro [2024-2026]</p>
-                <p style="margin-top:5px;">Stanford University</p>
-              </td>
-              <td style="padding:10px;">
-                <img src="images/Rivian_Logo_Alternative_1.png" alt="Affiliation Logo 3" style="max-width:200px;max-height:150px;">
-                <p style="margin-top:5px;">Software Engineering Intern - Autonomy [2025]</p>
-                <p style="margin-top:5px;">Rivian Automotive</p>
-              </td>
-              <td style="padding:10px;">
-                <img src="images/ASLLOGO.png" alt="Affiliation Logo 3" style="max-width:200px;max-height:150px;">
-                <p style="margin-top:5px;">Graduate Researcher [2024-Present]</p>
-                <p style="margin-top:5px;">Autonomous Systems Lab</p>
-              </td>
-            </tr>
-          </tbody></table>
+    /* ===== Layout ===== */
+    .container { max-width: var(--maxw); margin-inline: auto; padding: 24px; }
+    header, section, footer { margin-block: 28px; }
+    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .pad { padding: 20px; }
+    .grid { display: grid; gap: 16px; }
+    .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 
-          <!-- New row for logos -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:20px;margin-bottom:20px;"><tbody>
-            <tr style="text-align:center;">
-              <td style="padding:10px;">
-                <img src="images/logo.png" alt="Affiliation Logo 1" style="max-width:200px;max-height:150px;">
-                <p style="margin-top:5px;">B.Tech. in Mechanical Engineering [2020-2024]</p>
-                <p style="margin-top:5px;">IIT Bombay</p>
-              </td>
-              <td style="padding:10px;">
-                <img src="images/UBClogo.png" alt="Affiliation Logo 1" style="max-width:200px;max-height:150px;">
-                <p style="margin-top:5px;">Research Intern [2023]</p>
-                <p style="margin-top:5px;">The University of British Columbia, Vancouver</p>
-              </td>
-              <td style="padding:10px;">
-                <img src="images/Umiclogo.png" alt="Affiliation Logo 3" style="max-width:200px;max-height:150px;">
-                <p style="margin-top:5px;">Controls Engineer [2022-2024]</p>
-                <p style="margin-top:5px;">UMIC - SeDriCa</p>
-              </td>
-            </tr>
-          </tbody></table>
+    @media (max-width: 880px) {
+      .grid.cols-2, .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; }
+    }
 
-   
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Research Experience...</heading>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    /* ===== Header ===== */
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .id { display:flex; align-items:center; gap:16px; }
+    .avatar { width: 108px; aspect-ratio:1; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); }
+    h1 { font-size: clamp(28px, 4vw, 40px); margin: 0; letter-spacing: .3px; }
+    .lead { color: var(--muted); margin: 6px 0 0; }
 
+    .links { display:flex; flex-wrap: wrap; gap: 10px 16px; align-items:center; }
+    .chip { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:transparent; }
 
-         <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/snakeclip.gif" alt="mtpi" style="width:220px; height:180px;">
-            </td>
-            <td width="75%" valign="middle">
-<!--               <a href="https://ieeexplore.ieee.org/abstract/document/10684343"> -->
-              <papertitle style="color:#1772d0;">Decentralized Control Strategy for Path-Following in Snake Robots</papertitle>
-              </a>
-              <br>
-              <strong>Arpit Dwivedi</strong>, Hemanta Hazarika, Dwaipayan Mukherjee, and Debasattam Pal
-              
-              <br>
-              <em>International Conference on Control, Decision and Information Technologies (CoDIT), 2025</em>
-              <br>
-              <em>Accepted</em>
-              <br>
-              <br>
-              This project involved the design, fabrication, and integration of a modular snake robot capable of locomotion. The robot's kinematic and dynamic models were developed to analyze its motion and interactions, followed by accessibility analysis of the fabricated design.
-              Moreover, a decentralized path-following control algorithm has been proposed for our general
-              model. The proposed algorithm exploits local link-level autonomy and helps the robot maneuver smoothly for any general path curve.
-              <br> 
-<!--               <a href="https://ieeexplore.ieee.org/abstract/document/10684343">PDF</a>  -->
-            </td>
-         </tr>
-          
-         <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/turbinefloat.jpg" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://ieeexplore.ieee.org/abstract/document/10684343">
-                <papertitle>Floating Offshore Wind Farm Control via Turbine Repositioning: Unlocking the Potential Unique to Floating Offshore Wind</papertitle>
-              </a>
-              <br>
-              Yue Niu, <strong>Arpit Dwivedi</strong>, Joel Sathiraj, Parth P. Lathi, Ryozo Nagamune
-              
-              <br>
-              <em>IEEE Control Systems, October 2024.</em>
-              <br>
-              <br>
-              <em>MITACS Research Intern @ Control Engineering Laboratory, University of British Columbia, Vancouver.</em>
-              <br>
-              <a href="https://ieeexplore.ieee.org/abstract/document/10684343">Paper</a> 
-            </td>
-         </tr>
+    /* ===== Sections ===== */
+    .section-title { font-size: 22px; margin: 0 0 10px; }
+    .card { display:flex; gap:16px; border:1px solid var(--border); border-radius: 14px; background: linear-gradient(180deg, var(--panel), color-mix(in oklab, var(--panel), #000 6%)); overflow: clip; }
+    .card .thumb { width: 220px; max-width: 38%; object-fit: cover; border-right:1px solid var(--border); }
+    .card-body { padding: 16px; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .title { font-weight: 600; font-size: 18px; margin: 2px 0 6px; }
+    .badge { display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--border); border-radius:8px; color: var(--muted); }
 
+    .affil { text-align:center; padding:16px; border:1px solid var(--border); border-radius: 14px; background: var(--panel); }
+    .affil img { max-height: 70px; object-fit: contain; background: #fff0; }
 
-         <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/GA.png" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://link.springer.com/book/10.1007/978-981-96-1158-4">
-                <papertitle>Coverage Maximization for UAV Surveillance on Non-convex Domains using Genetic Algorithm</papertitle>
-              </a>
-              <br>
-              <strong>Arpit Dwivedi</strong>, Chinmay Pimpalkhare
-              
-              <br>
-              <em>Advances in Multidisciplinary Design, Analysis and Optimization, NCMDAO, 2023.</em>
-              <br>
+    /* ===== Footer ===== */
+    footer { color: var(--muted); font-size: 14px; text-align: right; }
 
-              <br>
-              This work develops a UAV surveillance framework for disaster management, focusing on maximizing coverage in non-convex and disconnected regions. 
-              The framework processes input images, extracts boundaries, and reduces complexity by approximating space as a union of polygons. A genetic algorithm with Monte Carlo sampling optimizes sensor configurations, leveraging problem geometry for efficient coverage.
-              <br> 
-              <a href="https://github.com/Dwivedi07/Rescue_Robot_Optimization">Code</a> / <a href="https://doi.org/10.1007/978-981-96-1158-4_46">Paper</a>
-            </td>
-         </tr>
+    /* ===== Utilities ===== */
+    .nowrap { white-space: nowrap; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
 
-          
-         <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/sedrica.png" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://umiciitb.org/">
-                <papertitle>UMIC-SeDriCa: Student Technical Team</papertitle>
-              </a>
-              <br>
-              Controls Engineer [2022-2024]: Worked on the controls subsystem of the team to deploy the Non-Linear Model Predictive Controller for our ego vehicle and performed testing in real-time. 
-              <br>
-              <a href="https://umiciitb.org/">Website</a> 
-            </td>
-         </tr>
+    /* Print (nice single column) */
+    @media print {
+      .panel, .card, .affil { box-shadow:none; }
+      a { color: inherit; text-decoration: underline; }
+    }
+  </style>
 
-         <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/jet.jpg" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/Dwivedi07/Jet_Impingement_Conical_Surface">
-                <papertitle>Jet Impingement Heat Transfer</papertitle>
-              </a>
-              <br>
-              Numerical computations performed in ANSYS Fluent for a cylindrical jet impinged over a flat and conical plate to analyze the cooling effects. The jet flow is in the range of complete turbulent flow.
-              The in-house experimental data of surface Nusselt number for different cases has been used for validating the Nusselt number obtained from computations.
-               <br>
-              <a href="https://github.com/Dwivedi07/Jet_Impingement_Conical_Surface">PDF</a>
-            
-            </td>
-         </tr>
+  <!-- JSON-LD: Person schema for better SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arpit Dwivedi",
+    "image": "images/ArpitDwivedi.jpg",
+    "jobTitle": "Graduate Researcher",
+    "affiliation": [{"@type":"Organization","name":"Stanford University"},{"@type":"Organization","name":"Autonomous Systems Lab"}],
+    "url": "https://dwivedi07.github.io/",
+    "email": "mailto:dwivedi7@stanford.edu",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=bTxIik4AAAAJ&hl=en",
+      "https://github.com/Dwivedi07/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <div class="container">
 
-         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Key Projects...</heading>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-        <tr>
-             <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/right.png" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-              <!-- <a href="https://cs231n.stanford.edu/2025/papers/text_file_840589978-final_report.pdf"> -->
-                <papertitle style="color:#1772d0;">Vision-Based End-to-End Planning for AVs</papertitle>
-               
-              </a>
-              <br>
-              In this work, we aim to design a model architecture that explores end-to-end driving problem in uncommon or unexpected situations on the Waymo Driving Dataset. Our architecture takes advantage of transformer-based vision models, Long Short-Term Memory based trajectory encoders, and insights from language models to encode intent and achieve a significant performance in path planning.<br>
-              <a href="https://cs231n.stanford.edu/2025/papers/text_file_840589978-final_report.pdf">Report </a>
-            </td>
-         </tr>
-
-         <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/multi.png" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/rohangarg2001/multi-robot-navigation">
-                <papertitle>Multirobot Navigation Under Uncertainty</papertitle>
-               
-              </a>
-              <br>
-              Decision-making for multi-robot navigation under state uncertainty, with an emphasis on lunar exploration scenarios. Designed a novel adaptation of POMCP-DPW algorithm to act as a controller.
-          
-              <br>
-              <a href="https://github.com/rohangarg2001/multi-robot-navigation">Code</a> / <a href="https://github.com/rohangarg2001/multi-robot-navigation/blob/main/AA228_FINAL_REPORT.pdf">PDF</a>
-            </td>
-         </tr>
-
-         <tr>
-             <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/GordonBotsy.jpeg" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://sites.google.com/stanford.edu/team-botatouille/home">
-                <papertitle style="color:#1772d0;">Gordon Botsy: Autonomous Bot</papertitle>
-               
-              </a>
-              <br>
-              This project aimed to develop an autonomous bot capable of demonstrating reliability and efficiency in making a series of intelligent decisions to successfully complete the given challenge.<br>
-              <a href="https://github.com/Dwivedi07/Mechatronics_GordonBotsy">Code / <a href="https://sites.google.com/stanford.edu/team-botatouille/home">Website</a> </a>
-            </td>
-         </tr>
-          
-          <tr>
-             <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/PickandPlaceArm.gif" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-<!--               <a href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control"> -->
-                <papertitle style="color:#1772d0;">Vision-based Pick and Place Manipulator</papertitle>
-               
-              </a>
-              <br>
-              This project focused on developing a vision-based pick-and-place system that demonstrated object detection and manipulation capabilities. A U-Net-based segmentation model was implemented, achieving a mean Intersection over Union (mIoU) of 96% for accurate feature delineation in 2D images. Additionally, an end-to-end grasping algorithm utilizing grasping affordance maps was deployed to enhance object handling precision and reliability.<br>
-<!--               <a href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control">Code</a> / <a href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control/blob/main/SC617_REPORT.pdf">PDF</a> -->
-            </td>
-         </tr>
-          
-         <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-              <img src="images/space.png" alt="mtpi" width="220">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control">
-                <papertitle>Spacecraft Attitude Control</papertitle>
-               
-              </a>
-              <br>
-              Designed and simulated adaptive attitude tracking controllers for spacecraft with uncertain inertia, achieving accurate tracking and parameter convergence.
-              <br>
-              <a href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control">Code</a> / <a href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control/blob/main/SC617_REPORT.pdf">PDF</a>
-            </td>
-         </tr>
-<!-- One Project -->
-          <!-- <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/case2019.gif" alt="needle-extraction" width="280" height="180">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://goldberg.berkeley.edu/pubs/2019-CASE-sundaresan-needle-extraction-to-appear.pdf">
-                <papertitle>Automated Extraction of Surgical Needles from Tissue Phantoms</papertitle>
-              </a>
-              <br>
-               <strong>Priya Sundaresan</strong>, Brijen Thananjeyan, Johnathan Chiu, Danyal Fer, Ken Goldberg
-              <br>
-              <em>Conference on Automation Science and Engineering (CASE), 2019.</em>
-              <br>
-              <a href="https://goldberg.berkeley.edu/pubs/2019-CASE-sundaresan-needle-extraction-to-appear.pdf">PDF</a>
-            </td>
-          </tr> -->
-
-        <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>For Fun</heading>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-         <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/doge_dodge.png" alt="diffcloud" width="280" height="30">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="game.html">
-                <papertitle>Doge Dodge</papertitle>
-              </a>
-              <br>This is a silly little game I made which is heavily inspired by the Chrome T-Rex game that pops up when there's bad connectivity (s/o to UC Berkeley's wifi!), as well as my favorite game of all time, Crossy Road!! 
-              <br>
-              Credits: <a href="https://ebiten.org/">tile art and sound effects</a>, <a href="http://pixelartmaker.com/art/13d23ac43116c0c.png">doge art</a>, <a href="http://pixelartmaker.com/art/dc64eddc1719fb3.png">cactus art</a>, <a href="https://steamuserimages-a.akamaihd.net/ugc/96104387823325173/12EBB3BF7F176EFFCE809BFA500953E1F60F8825/">background art</a>, <a href="http://pixelartmaker.com/art/da268f06e621b21.png">rock art</a>, <a href="http://pixelartmaker.com/art/dca2574a41f6294.png">spike art</a>.
-              <br>
-            </td>
-          </tr>
-        </tbody></table> -->
-
-         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Academic Services...</heading>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <td style="padding:2.5%;width:63%;vertical-align:middle">
+    <!-- ===== Header / Intro ===== -->
+    <header class="panel pad">
+      <div class="topbar">
+        <div class="id">
+          <img src="images/ArpitDwivedi.jpg" alt="Portrait of Arpit Dwivedi" class="avatar" loading="eager" />
+          <div>
+            <h1>Arpit Dwivedi</h1>
+            <p class="lead">MS AeroAstro @ <a href="https://www.stanford.edu/" target="_blank" rel="noopener">Stanford</a> • Researcher @ <a href="https://stanfordasl.github.io/" target="_blank" rel="noopener">ASL</a> (Marco Pavone)</p>
+            <p class="lead">Control Theory × Machine Learning × Decision Making
+              <span aria-hidden="true">·</span>
+              <span class="nowrap">AVs & Space</span>
             </p>
-              <p>Conference Reviewer: CDC 2025, CoDIT 2025, RSS (OOD Workshop) 2025
-            </p>
-          </td>
-          
+          </div>
+        </div>
+        <nav class="links" aria-label="Primary">
+          <a class="chip" href="mailto:dwivedi7@stanford.edu">Email</a>
+          <!-- <a class="chip" href="data/ArpitDwivedi-CV.pdf">CV</a> -->
+          <a class="chip" href="https://scholar.google.com/citations?user=bTxIik4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="chip" href="https://github.com/Dwivedi07/" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+      </div>
+    </header>
 
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:right;font-size:small;">
-                Thanks to Jon Barron for the <a href="https://jonbarron.info/">awesome website template <3</a>.
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
+    <main id="main">
+      <!-- ===== About blurb ===== -->
+      <section class="panel pad">
+        <h2 class="section-title">About</h2>
+        <p>
+          I'm a master's student in Aeronautics & Astronautics at Stanford University, currently conducting research in the
+          <a href="https://stanfordasl.github.io/" target="_blank" rel="noopener">Autonomous Systems Lab</a>
+          advised by <a href="https://stanfordasl.github.io/people/prof-marco-pavone/" target="_blank" rel="noopener">Prof. Marco Pavone</a>.
+          Before Stanford, I completed a B.Tech. in Mechanical Engineering with Honors and a minor in AI & Data Science at
+          <a href="https://www.iitb.ac.in/" target="_blank" rel="noopener">IIT Bombay</a>, where I worked with
+          <a href="https://www.ee.iitb.ac.in/web/people/dwaipayan-mukherjee/" target="_blank" rel="noopener">Prof. Dwaipayan Mukherjee</a> in the Controls & Computing Lab.
+          My interests span the intersection of control theory, machine learning, and decision making — with a focus on
+          autonomous driving and space vehicles.
+        </p>
+      </section>
+
+      <!-- ===== Highlights / Affiliations ===== -->
+      <section>
+        <div class="grid cols-3">
+          <figure class="affil">
+            <img src="images/stanfordlogo.png" alt="Stanford University logo" loading="lazy" />
+            <figcaption>
+              <strong>M.S. in AeroAstro (2024–2026)</strong><br />
+              Stanford University
+            </figcaption>
+          </figure>
+          <figure class="affil">
+            <img src="images/Rivian_Logo_Alternative_1.png" alt="Rivian logo" loading="lazy" />
+            <figcaption>
+              <strong>Software Eng. Intern — Autonomy (2025)</strong><br />
+              Rivian Automotive
+            </figcaption>
+          </figure>
+          <figure class="affil">
+            <img src="images/ASLLOGO.png" alt="Autonomous Systems Lab logo" loading="lazy" />
+            <figcaption>
+              <strong>Graduate Researcher (2024–present)</strong><br />
+              Stanford ASL
+            </figcaption>
+          </figure>
+        </div>
+        <div class="grid cols-3" style="margin-top:16px;">
+          <figure class="affil">
+            <img src="images/logo.png" alt="IIT Bombay logo" loading="lazy" />
+            <figcaption>
+              <strong>B.Tech. Mechanical Eng. (2020–2024)</strong><br />
+              IIT Bombay
+            </figcaption>
+          </figure>
+          <figure class="affil">
+            <img src="images/UBClogo.png" alt="UBC logo" loading="lazy" />
+            <figcaption>
+              <strong>Research Intern (2023)</strong><br />
+              UBC, Vancouver
+            </figcaption>
+          </figure>
+          <figure class="affil">
+            <img src="images/Umiclogo.png" alt="UMIC SeDriCa logo" loading="lazy" />
+            <figcaption>
+              <strong>Controls Engineer (2022–2024)</strong><br />
+              UMIC — SeDriCa
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ===== Research Experience ===== -->
+      <section class="panel pad">
+        <h2 class="section-title">Research Experience</h2>
+        <article class="card">
+          <img class="thumb" src="images/snakeclip.gif" alt="Snake robot locomotion clip" loading="lazy" />
+          <div class="card-body">
+            <div class="title" style="color:var(--accent)">Decentralized Control Strategy for Path‑Following in Snake Robots</div>
+            <div class="meta">Arpit Dwivedi, Hemanta Hazarika, Dwaipayan Mukherjee, Debasattam Pal • CoDIT 2025 — <span class="badge">Accepted</span></div>
+            <p>
+              Designed a modular snake robot and proposed a decentralized path‑following controller exploiting local link autonomy to track general curves smoothly.
+            </p>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:12px;">
+          <img class="thumb" src="images/turbinefloat.jpg" alt="Floating offshore wind turbines" loading="lazy" />
+          <div class="card-body">
+            <a class="title" href="https://ieeexplore.ieee.org/abstract/document/10684343" target="_blank" rel="noopener">Floating Offshore Wind Farm Control via Turbine Repositioning</a>
+            <div class="meta">Yue Niu, <strong>Arpit Dwivedi</strong>, Joel Sathiraj, Parth P. Lathi, Ryozo Nagamune • <em>IEEE Control Systems</em>, Oct 2024</div>
+            <p>
+              Research intern @ UBC Control Engineering Lab. Repositioning strategies that unlock unique potential of floating offshore wind farms.
+            </p>
+            <p><a href="https://ieeexplore.ieee.org/abstract/document/10684343" target="_blank" rel="noopener">Paper</a></p>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:12px;">
+          <img class="thumb" src="images/GA.png" alt="Genetic algorithm coverage graphic" loading="lazy" />
+          <div class="card-body">
+            <a class="title" href="https://link.springer.com/book/10.1007/978-981-96-1158-4" target="_blank" rel="noopener">Coverage Maximization for UAV Surveillance on Non‑convex Domains using GA</a>
+            <div class="meta"><strong>Arpit Dwivedi</strong>, Chinmay Pimpalkhare • Advances in Multidisciplinary Design, Analysis and Optimization (NCMDAO), 2023</div>
+            <p>
+              UAV surveillance framework for disaster management; polygonal approximation and GA + Monte Carlo search for efficient sensor placement.
+            </p>
+            <p><a href="https://github.com/Dwivedi07/Rescue_Robot_Optimization" target="_blank" rel="noopener">Code</a> · <a href="https://doi.org/10.1007/978-981-96-1158-4_46" target="_blank" rel="noopener">Paper</a></p>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:12px;">
+          <img class="thumb" src="images/sedrica.png" alt="UMIC SeDriCa ego vehicle" loading="lazy" />
+          <div class="card-body">
+            <a class="title" href="https://umiciitb.org/" target="_blank" rel="noopener">UMIC‑SeDriCa: Student Technical Team</a>
+            <div class="meta">Controls Engineer (2022–2024) • Deployed Nonlinear MPC and performed real‑time testing on an AV platform.</div>
+            <p><a href="https://umiciitb.org/" target="_blank" rel="noopener">Website</a></p>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:12px;">
+          <img class="thumb" src="images/jet.jpg" alt="Jet impingement visualization" loading="lazy" />
+          <div class="card-body">
+            <a class="title" href="https://github.com/Dwivedi07/Jet_Impingement_Conical_Surface" target="_blank" rel="noopener">Jet Impingement Heat Transfer</a>
+            <div class="meta">ANSYS Fluent simulations for cylindrical jet on flat and conical plates; validated Nusselt profiles against in‑house experiments.</div>
+            <p><a href="https://github.com/Dwivedi07/Jet_Impingement_Conical_Surface" target="_blank" rel="noopener">Repository</a></p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ===== Key Projects ===== -->
+      <section class="panel pad">
+        <h2 class="section-title">Key Projects</h2>
+
+        <article class="card">
+          <img class="thumb" src="images/right.png" alt="End‑to‑end planning illustration" loading="lazy" />
+          <div class="card-body">
+            <div class="title" style="color:var(--accent)">Vision‑Based End‑to‑End Planning for AVs</div>
+            <div class="meta">Transformer vision encoder + LSTM trajectories; intent‑aware planning on Waymo Open Dataset.</div>
+            <p><a href="https://cs231n.stanford.edu/2025/papers/text_file_840589978-final_report.pdf" target="_blank" rel="noopener">Report</a></p>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:12px;">
+          <img class="thumb" src="images/multi.png" alt="Multi‑robot navigation graphic" loading="lazy" />
+          <div class="card-body">
+            <a class="title" href="https://github.com/rohangarg2001/multi-robot-navigation" target="_blank" rel="noopener">Multirobot Navigation Under Uncertainty</a>
+            <div class="meta">POMCP‑DPW controller for lunar exploration scenarios.</div>
+            <p><a href="https://github.com/rohangarg2001/multi-robot-navigation" target="_blank" rel="noopener">Code</a> · <a href="https://github.com/rohangarg2001/multi-robot-navigation/blob/main/AA228_FINAL_REPORT.pdf" target="_blank" rel="noopener">PDF</a></p>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:12px;">
+          <img class="thumb" src="images/GordonBotsy.jpeg" alt="Gordon Botsy autonomous bot" loading="lazy" />
+          <div class="card-body">
+            <a class="title" href="https://sites.google.com/stanford.edu/team-botatouille/home" target="_blank" rel="noopener">Gordon Botsy: Autonomous Bot</a>
+            <div class="meta">Reliability‑focused autonomous agent completing sequential tasks.</div>
+            <p><a href="https://github.com/Dwivedi07/Mechatronics_GordonBotsy" target="_blank" rel="noopener">Code</a> · <a href="https://sites.google.com/stanford.edu/team-botatouille/home" target="_blank" rel="noopener">Website</a></p>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:12px;">
+          <img class="thumb" src="images/PickandPlaceArm.gif" alt="Vision‑based pick‑and‑place manipulator" loading="lazy" />
+          <div class="card-body">
+            <div class="title" style="color:var(--accent)">Vision‑based Pick & Place Manipulator</div>
+            <div class="meta">U‑Net segmentation (mIoU 96%) + grasp affordance maps for robust manipulation.</div>
+          </div>
+        </article>
+
+        <article class="card" style="margin-top:12px;">
+          <img class="thumb" src="images/space.png" alt="Spacecraft attitude control graphic" loading="lazy" />
+          <div class="card-body">
+            <a class="title" href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control" target="_blank" rel="noopener">Spacecraft Attitude Control</a>
+            <div class="meta">Adaptive attitude tracking under inertia uncertainty; accurate tracking & parameter convergence.</div>
+            <p><a href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control" target="_blank" rel="noopener">Code</a> · <a href="https://github.com/Dwivedi07/Spacecraft-Attitude-Control/blob/main/SC617_REPORT.pdf" target="_blank" rel="noopener">PDF</a></p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ===== Academic Service ===== -->
+      <section class="panel pad">
+        <h2 class="section-title">Academic Service</h2>
+        <p>Conference Reviewer: CDC 2025, CoDIT 2025, RSS (OOD Workshop) 2025</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Thanks to <a href="https://jonbarron.info/" target="_blank" rel="noopener">Jon Barron</a> for the original inspiration. <span aria-hidden="true">•</span> Last updated <time datetime="2025-10-26">Oct 26, 2025</time>.</p>
+    </footer>
+  </div>
 </body>
-
 </html>
