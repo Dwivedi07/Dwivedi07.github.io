@@ -34,6 +34,15 @@
     @media (prefers-color-scheme: light) {
       :root { --bg:#ffffff; --panel:#fafafa; --text:#101418; --muted:#515c6a; --border:#e6e8ec; --shadow:0 10px 30px rgba(0,0,0,.06); }
     }
+    /* Logos inside cards: show full logo, no cropping */
+    .card .thumb.logo {
+      object-fit: contain;      /* show full logo */
+      background: transparent;  /* avoid letterbox lines */
+      padding: 12px;            /* breathing room */
+      max-height: 120px;        /* keeps card compact */
+      width: 220px;             /* same column width as photos */
+      border-right: 1px solid var(--border);
+    }
 
     /* ===== Reset / base ===== */
     *, *::before, *::after { box-sizing: border-box; }
@@ -217,7 +226,7 @@
       <section class="panel pad">
       <h2 class="section-title">Professional Experience</h2>
       <article class="card">
-      <img class="thumb" src="images/Rivian_Logo_Alternative_1.png" alt="Rivian internship" loading="lazy" />
+      <img class="thumb logo" src="images/Rivian_Logo_Alternative_1.png" alt="Rivian internship" loading="lazy" />
       <div class="card-body">
       <div class="title" style="color:var(--accent)">Software Engineering Intern — Autonomy, Rivian Automotive</div>
       <div class="meta">Summer 2025</div>
