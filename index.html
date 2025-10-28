@@ -10,7 +10,7 @@
 
   <!-- Open Graph / Twitter for prettier link shares -->
   <meta property="og:title" content="Arpit Dwivedi — Research & Projects" />
-  <meta property="og:description" content="Controls & Planning × Reinforcement Learning × Decision Making | Robotics" />
+  <meta property="og:description" content="Controls & Planning × Reinforcement Learning | Robotics" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="images/ArpitDwivedi.jpg" />
   <meta property="og:url" content="https://dwivedi07.github.io/" />
@@ -19,23 +19,31 @@
   <style>
     /* ===== Design tokens ===== */
     :root {
-      --bg: #0f1115;
-      --panel: #161a22;
-      --text: #e6e6e6;
-      --muted: #a6adbb;
-      --link: #7cc4ff;
-      --link-visited: #bfa3ff;
-      --accent: #1772d0;
-      --border: #292f3a;
-      --shadow: 0 6px 20px rgba(0,0,0,.35);
+      --bg: #e9eef5;          /* page background (bluish grey) */
+      --panel: #ffffff;       /* cards/panels */
+      --text: #0e1116;        /* primary text (dark) */
+      --muted: #526072;       /* secondary text */
+      --link: #0b63ce;        /* links */
+      --link-visited: #6a4dd8;
+      --accent: #1559b3;      /* accents/titles */
+      --border: #dde4ee;      /* subtle borders */
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
       --radius: 16px;
       --maxw: 1000px;
-      --thumb-ar: 16/9;        /* default aspect ratio for media thumbs */
-      --thumb-h-m: 190px;       /* mobile thumb height cap for photos */
-      --logo-h-m: 110px;        /* mobile thumb height cap for logos  */
+      --thumb-ar: 16/9;
+      --thumb-h-m: 190px;
+      --logo-h-m: 110px;
     }
+    /* Light mode override now mirrors the same palette (optional; can remove entirely) */
     @media (prefers-color-scheme: light) {
-      :root { --bg:#ffffff; --panel:#fafafa; --text:#101418; --muted:#515c6a; --border:#e6e8ec; --shadow:0 10px 30px rgba(0,0,0,.06); }
+      :root {
+        --bg: #e9eef5;
+        --panel: #ffffff;
+        --text: #0e1116;
+        --muted: #526072;
+        --border: #dde4ee;
+        --shadow: 0 10px 30px rgba(0,0,0,.08);
+      }
     }
 
     /* ===== Reset / base ===== */
@@ -206,7 +214,7 @@
           <div>
             <h1>Arpit Dwivedi</h1>
             <p class="lead">MS AeroAstro @ <a href="https://www.stanford.edu/" target="_blank" rel="noopener">Stanford</a> • Researcher @ <a href="https://stanfordasl.github.io/" target="_blank" rel="noopener">ASL</a></p>
-            <p class="lead">Controls & Planning × Reinforcement Learning × Decision Making
+            <p class="lead">Controls & Planning × Reinforcement Learning 
               <span aria-hidden="true">·</span>
               <span class="nowrap">Robotics</span>
             </p>
