@@ -8,7 +8,7 @@
   <meta name="author" content="Arpit Dwivedi" />
   <link rel="icon" href="images/favicon/favicon.ico" />
 
-  <!-- Open Graph / Twitter for prettier link shares -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Arpit Dwivedi — Research & Projects" />
   <meta property="og:description" content="Controls & Planning × Reinforcement Learning | Robotics" />
   <meta property="og:type" content="website" />
@@ -18,196 +18,107 @@
 
   <style>
     /* ===== Design tokens ===== */
-    :root {
-      --bg: #e9eef5;          /* page background (bluish grey) */
-      --panel: #ffffff;       /* cards/panels */
-      --text: #0e1116;        /* primary text (dark) */
-      --muted: #526072;       /* secondary text */
-      --link: #0b63ce;        /* links */
-      --link-visited: #6a4dd8;
-      --accent: #1559b3;      /* accents/titles */
-      --border: #dde4ee;      /* subtle borders */
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
-      --radius: 16px;
-      --maxw: 1000px;
-      --thumb-ar: 16/9;
-      --thumb-h-m: 190px;
-      --logo-h-m: 110px;
+    :root{
+      --bg:#e9eef5;--panel:#fff;--text:#0e1116;--muted:#526072;--link:#0b63ce;--link-visited:#6a4dd8;
+      --accent:#1559b3;--border:#dde4ee;--shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:16px;--maxw:1000px;--thumb-ar:16/9;--thumb-h-m:190px;--logo-h-m:110px
     }
-    /* Light mode override now mirrors the same palette (optional; can remove entirely) */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #e9eef5;
-        --panel: #ffffff;
-        --text: #0e1116;
-        --muted: #526072;
-        --border: #dde4ee;
-        --shadow: 0 10px 30px rgba(0,0,0,.08);
-      }
+    @media (prefers-color-scheme: light){
+      :root{--bg:#e9eef5;--panel:#fff;--text:#0e1116;--muted:#526072;--border:#dde4ee;--shadow:0 10px 30px rgba(0,0,0,.08)}
     }
 
     /* ===== Reset / base ===== */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-      color: var(--text);
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(21, 89, 179, .10), transparent 40%),
-        radial-gradient(900px 600px at 110% 10%, rgba(124, 196, 255, .10), transparent 50%),
+        radial-gradient(1200px 600px at 10% -10%, rgba(21,89,179,.10), transparent 40%),
+        radial-gradient(900px 600px at 110% 10%, rgba(124,196,255,.10), transparent 50%),
         var(--bg);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+      padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
-    
-    /* Cards look cleaner on light bg */
-    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .card {
-      background: linear-gradient(180deg, var(--panel), color-mix(in oklab, var(--panel), #000 3%));
-      border: 1px solid var(--border);
-    }
-    .meta, footer { color: var(--muted); }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    a:visited { color: var(--link-visited); }
-    img { max-width: 100%; height: auto; border-radius: 12px; display: block; }
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    a:visited{color:var(--link-visited)}
+    img{max-width:100%;height:auto;border-radius:12px;display:block}
 
     /* ===== Layout ===== */
-    .container { max-width: var(--maxw); margin-inline: auto; padding: 24px; }
-    header, section, footer { margin-block: 28px; }
-    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .pad { padding: 20px; }
-    .grid { display: grid; gap: 16px; }
-    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .container{max-width:var(--maxw);margin-inline:auto;padding:24px}
+    header,section,footer{margin-block:28px}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .pad{padding:20px}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
 
     /* ===== Header ===== */
-    .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .id { display:flex; align-items:center; gap:16px; }
-    .avatar { width: 108px; aspect-ratio:1; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); }
-    h1 { font-size: clamp(28px, 4vw, 40px); margin: 0; letter-spacing: .3px; }
-    .lead { color: var(--muted); margin: 6px 0 0; }
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .id{display:flex;align-items:center;gap:16px;min-width:0}
+    .avatar{width:108px;aspect-ratio:1;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex:0 0 auto}
+    h1{font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;letter-spacing:.3px}
+    .lead{color:var(--muted);margin:6px 0 0}
 
-    .links { display:flex; flex-wrap: wrap; gap: 10px 12px; align-items:center; }
-    .chip { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:transparent; cursor:pointer; }
+    .links{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center}
+    .chip{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:999px;background:#fff;cursor:pointer;white-space:nowrap}
 
     /* ===== Sections ===== */
-    .section-title { font-size: 22px; margin: 0 0 10px; }
-    .card {
-      display:flex; gap:16px;
-      border:1px solid var(--border); border-radius: 14px;
-      background: linear-gradient(180deg, var(--panel), color-mix(in oklab, var(--panel), #000 6%));
-      overflow: clip;
+    .section-title{font-size:22px;margin:0 0 10px}
+    .card{display:flex;gap:16px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,var(--panel),color-mix(in oklab,var(--panel),#000 6%));overflow:clip}
+    .card .thumb{width:220px;max-width:38%;aspect-ratio:var(--thumb-ar);object-fit:cover;border-right:1px solid var(--border);margin:0}
+    .card .thumb.logo{object-fit:contain;background:transparent;padding:12px;width:220px;max-height:120px;border-right:1px solid var(--border)}
+    .card-body{padding:16px}
+    .meta{color:var(--muted);font-size:14px}
+    .title{font-weight:600;font-size:18px;margin:2px 0 6px}
+    .badge{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:8px;color:var(--muted)}
+
+    .affil{text-align:center;padding:16px;border:1px solid var(--border);border-radius:14px;background:var(--panel)}
+    .affil img{max-height:70px;object-fit:contain;background:#fff0;margin-inline:auto}
+
+    footer{color:var(--muted);font-size:14px;text-align:right}
+
+    .nowrap{white-space:nowrap}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+    /* ===== Mobile (fix header overlap) ===== */
+    @media (max-width: 880px){
+      .grid.cols-3{grid-template-columns:1fr}
+      .topbar{flex-direction:column;align-items:stretch;gap:12px}
+      .id{align-items:flex-start}
+      .avatar{width:88px}
+      /* Make link chips a tidy 2-col grid so they never collide with the name */
+      .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+      .links .chip{width:100%} /* full-width buttons inside grid cells */
+      /* Cards stack media on top */
+      .card{flex-direction:column}
+      .card .thumb{width:100%;max-width:100%;border-right:0;border-bottom:1px solid var(--border);aspect-ratio:var(--thumb-ar);max-height:var(--thumb-h-m)}
+      .card .thumb.logo{aspect-ratio:auto;max-height:var(--logo-h-m);height:var(--logo-h-m);padding:10px;object-fit:contain}
     }
 
-    /* Media thumbnails default: side thumbnail on wide screens */
-    .card .thumb {
-      width: 220px;            /* side column width on desktop */
-      max-width: 38%;
-      aspect-ratio: var(--thumb-ar);
-      height: auto;
-      object-fit: cover;
-      border-right:1px solid var(--border);
-      border-bottom:0;
-      margin: 0;
-    }
-    /* Logos inside cards: show full logo, no cropping */
-    .card .thumb.logo {
-      object-fit: contain;
-      background: transparent;
-      padding: 12px;
-      /* Keep the same column width on desktop */
-      width: 220px;
-      max-height: 120px;
-      border-right: 1px solid var(--border);
-    }
+    /* ===== Desktop Mobile-Preview mode (force phone layout) ===== */
+    body[data-preview="mobile"] .container{max-width:420px}
+    body[data-preview="mobile"] .topbar{flex-direction:column;align-items:stretch;gap:12px}
+    body[data-preview="mobile"] .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    body[data-preview="mobile"] .links .chip{width:100%}
+    body[data-preview="mobile"] .card{flex-direction:column}
+    body[data-preview="mobile"] .card .thumb{width:100%;max-width:100%;border-right:0;border-bottom:1px solid var(--border);aspect-ratio:var(--thumb-ar);max-height:var(--thumb-h-m)}
+    body[data-preview="mobile"] .card .thumb.logo{aspect-ratio:auto;max-height:var(--logo-h-m);height:var(--logo-h-m);padding:10px;object-fit:contain}
 
-    .card-body { padding: 16px; }
-    .meta { color: var(--muted); font-size: 14px; }
-    .title { font-weight: 600; font-size: 18px; margin: 2px 0 6px; }
-    .badge { display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--border); border-radius:8px; color: var(--muted); }
-
-    .affil { text-align:center; padding:16px; border:1px solid var(--border); border-radius: 14px; background: var(--panel); }
-    .affil img { max-height: 70px; object-fit: contain; background: #fff0; margin-inline:auto; }
-
-    /* ===== Footer ===== */
-    footer { color: var(--muted); font-size: 14px; text-align: right; }
-
-    /* ===== Utilities ===== */
-    .nowrap { white-space: nowrap; }
-    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
-
-    /* ===== Responsive (true mobile) ===== */
-    @media (max-width: 880px) {
-      .grid.cols-3 { grid-template-columns: 1fr; }
-      .topbar { align-items: flex-start; }
-      .avatar { width: 88px; }
-      .links { gap: 8px 10px; }
-
-      .card { flex-direction: column; }
-      .card .thumb {
-        width: 100%;
-        max-width: 100%;
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
-        /* Keep media from getting “too tall” on phones */
-        aspect-ratio: var(--thumb-ar);
-        max-height: var(--thumb-h-m);
-      }
-      .card .thumb.logo {
-        /* Logos should never be tall/zoomed; contain them */
-        aspect-ratio: auto;
-        max-height: var(--logo-h-m);
-        height: var(--logo-h-m);
-        padding: 10px;
-        object-fit: contain;
-      }
-    }
-
-    /* ===== Desktop Mobile-Preview mode =====
-       When body has [data-preview="mobile"], we *force* mobile styles
-       (useful to test on desktop). We simulate a phone width and apply
-       the same stacking rules. */
-    body[data-preview="mobile"] .container { max-width: 420px; }
-    body[data-preview="mobile"] .grid.cols-3 { grid-template-columns: 1fr; }
-    body[data-preview="mobile"] .card { flex-direction: column; }
-    body[data-preview="mobile"] .card .thumb {
-      width: 100%;
-      max-width: 100%;
-      border-right: 0;
-      border-bottom: 1px solid var(--border);
-      aspect-ratio: var(--thumb-ar);
-      max-height: var(--thumb-h-m);
-    }
-    body[data-preview="mobile"] .card .thumb.logo {
-      aspect-ratio: auto;
-      max-height: var(--logo-h-m);
-      height: var(--logo-h-m);
-      padding: 10px;
-      object-fit: contain;
-    }
-
-    /* Print (nice single column) */
-    @media print {
-      .panel, .card, .affil { box-shadow:none; }
-      a { color: inherit; text-decoration: underline; }
+    @media print{
+      .panel,.card,.affil{box-shadow:none}
+      a{color:inherit;text-decoration:underline}
     }
   </style>
 
-  <!-- JSON-LD: Person schema for better SEO -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Arpit Dwivedi",
-    "image": "images/ArpitDwivedi.jpg",
-    "jobTitle": "Graduate Researcher",
-    "affiliation": [{"@type":"Organization","name":"Stanford University"},{"@type":"Organization","name":"Autonomous Systems Lab"}],
-    "url": "https://dwivedi07.github.io/",
-    "email": "mailto:dwivedi7@stanford.edu",
-    "sameAs": [
-      "https://scholar.google.com/citations?user=bTxIik4AAAAJ&hl=en",
-      "https://github.com/Dwivedi07/"
-    ]
+    "@context":"https://schema.org","@type":"Person",
+    "name":"Arpit Dwivedi","image":"images/ArpitDwivedi.jpg","jobTitle":"Graduate Researcher",
+    "affiliation":[{"@type":"Organization","name":"Stanford University"},{"@type":"Organization","name":"Autonomous Systems Lab"}],
+    "url":"https://dwivedi07.github.io/","email":"mailto:dwivedi7@stanford.edu",
+    "sameAs":["https://scholar.google.com/citations?user=bTxIik4AAAAJ&hl=en","https://github.com/Dwivedi07/"]
   }
   </script>
 </head>
