@@ -234,6 +234,14 @@
       <section class="panel pad">
         <h2 class="section-title">Research Experience</h2>
         <article class="card">
+          <img class="thumb" src="images/trajopt.png" alt="FreeFlyer Solution" loading="lazy" />
+          <div class="card-body">
+            <div class="title" style="color:var(--accent)">Trajectory-conditioned Policy Learning</div>
+            <p>My work benchmarks sequence models - including Decision Transformer, S6-Mamba, and S4D - to warm-start nonlinear trajectory optimizers, with safety enforced through Sequential Convex Programming. The Decision Transformer demonstrated the strongest performance, achieving an 80% faster warm-start (0.37s), 42% lower runtime, and 14% higher feasibility compared to numerical solvers. I further deployed the learned controller on a Jetson AGX Orin within a ROS2 stack, where it achieved real-time open-loop execution and closed-loop flight through integrated MPC on Freeflyer robots.</p>
+          </div>
+        </article>
+        
+        <article class="card">
           <img class="thumb" src="images/snakeclip.gif" alt="Snake robot locomotion clip" loading="lazy" />
           <div class="card-body">
             <div class="title" style="color:var(--accent)">Decentralized Control Strategy for Path-Following in Snake Robots</div>
