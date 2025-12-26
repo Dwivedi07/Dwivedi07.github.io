@@ -147,31 +147,27 @@ heading {
 }
 
 
-/* Featured award paper */
-.card-award {
-  background: linear-gradient(
-    135deg,
-    #f1fbf3 0%,
-    #e8f5e9 100%
-  );
-  border: 1.5px solid #81c784;
-  box-shadow: 0 6px 18px rgba(56, 142, 60, 0.15);
+
+/* ===== Force-highlight award paper card ===== */
+.card.card-award {
+  background-color: #e8f5e9 !important;
+  border: 2px solid #66bb6a !important;
+  box-shadow: 0 8px 24px rgba(56, 142, 60, 0.25) !important;
 }
 
-/* Slight lift on hover */
-.card-award:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(56, 142, 60, 0.25);
+/* In case .card-body has its own background */
+.card.card-award .card-body {
+  background-color: transparent !important;
 }
 
-/* Award slab inside card */
-.card-award .award-slab {
+/* Award label */
+.card.card-award .award-slab {
   display: inline-block;
   margin: 6px 0 10px 0;
   padding: 4px 10px;
   font-size: 0.85rem;
   font-weight: 600;
   color: #1b5e20;
-  background: #c8e6c9;
+  background-color: #c8e6c9 !important;
   border-radius: 6px;
 }
