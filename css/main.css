@@ -197,6 +197,15 @@ h1 {
 .chip:hover {
   text-decoration: none;
 }
+.icon-chip {
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+}
+.icon-chip .icon {
+  display: block;
+  flex-shrink: 0;
+}
 .theme-toggle {
   border: 1px solid var(--border);
   background: var(--chip-bg);
@@ -225,6 +234,18 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: inline-block; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .theme-toggle .icon-sun { display: none; }
   :root:not([data-theme]) .theme-toggle .icon-moon { display: inline-block; }
+}
+
+.hero-about {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.hero-about .section-title {
+  margin-top: 0;
+}
+.hero-about p {
+  margin: 0;
 }
 
 /* ===== Sections ===== */
@@ -369,12 +390,12 @@ html[data-theme="dark"] .card.card-award .award-slab {
     width: 88px;
   }
   .links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
   }
-  .links .chip {
-    width: 100%;
+  .links .icon-chip {
+    width: auto;
   }
   .card {
     flex-direction: column;
