@@ -7,6 +7,10 @@
   <meta name="description" content="Arpit Dwivedi — MS AeroAstro at Stanford. Research: control theory, machine learning, decision making for robotics, autonomous driving and space vehicles." />
   <meta name="author" content="Arpit Dwivedi" />
   <link rel="icon" href="images/favicon/favicon.ico" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);})();
+  </script>
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Arpit Dwivedi - Research & Projects" />
@@ -15,108 +19,6 @@
   <meta property="og:image" content="images/ArpitDwivedi.jpg" />
   <meta property="og:url" content="https://dwivedi07.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <style>
-    /* ===== Design tokens ===== */
-    :root{
-      --bg:#e9eef5;--panel:#fff;--text:#0e1116;--muted:#526072;--link:#0b63ce;--link-visited:#6a4dd8;
-      --accent:#1559b3;--border:#dde4ee;--shadow:0 10px 30px rgba(0,0,0,.08);
-      --radius:16px;--maxw:1000px;--thumb-ar:16/9;--thumb-h-m:190px;--logo-h-m:110px
-    }
-    @media (prefers-color-scheme: light){
-      :root{--bg:#e9eef5;--panel:#fff;--text:#0e1116;--muted:#526072;--border:#dde4ee;--shadow:0 10px 30px rgba(0,0,0,.08)}
-    }
-
-    /* ===== Reset / base ===== */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(21,89,179,.10), transparent 40%),
-        radial-gradient(900px 600px at 110% 10%, rgba(124,196,255,.10), transparent 50%),
-        var(--bg);
-      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-      padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-    }
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    a:visited{color:var(--link-visited)}
-    img{max-width:100%;height:auto;border-radius:12px;display:block}
-
-    /* ===== Layout ===== */
-    .container{max-width:var(--maxw);margin-inline:auto;padding:24px}
-    header,section,footer{margin-block:28px}
-    .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .pad{padding:20px}
-    .grid{display:grid;gap:16px}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-
-    /* ===== Header ===== */
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .id{display:flex;align-items:center;gap:16px;min-width:0}
-    .avatar{width:108px;aspect-ratio:1;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex:0 0 auto}
-    h1{font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;letter-spacing:.3px}
-    .lead{color:var(--muted);margin:6px 0 0}
-
-    .links{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center}
-    .chip{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:999px;background:#fff;cursor:pointer;white-space:nowrap}
-
-    /* ===== Sections ===== */
-    .section-title{font-size:22px;margin:0 0 10px}
-    .card{display:flex;gap:16px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,var(--panel),color-mix(in oklab,var(--panel),#000 6%));overflow:clip}
-    /* .card .thumb{width:220px;max-width:38%;aspect-ratio:var(--thumb-ar);object-fit:cover;border-right:1px solid var(--border);margin:0} */
-    .card .thumb{
-  width:220px;
-  max-width:38%;
-  object-fit:contain; /* changed from cover */
-  height:auto;        /* allow natural height */
-  aspect-ratio:auto;  /* remove forced crop */
-}
-    .card .thumb.logo{object-fit:contain;background:transparent;padding:12px;width:220px;max-height:120px;border-right:1px solid var(--border)}
-    .card-body{padding:16px}
-    .meta{color:var(--muted);font-size:14px}
-    .title{font-weight:600;font-size:18px;margin:2px 0 6px}
-    .badge{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:8px;color:var(--muted)}
-
-    .affil{text-align:center;padding:16px;border:1px solid var(--border);border-radius:14px;background:var(--panel)}
-    .affil img{max-height:70px;object-fit:contain;background:#fff0;margin-inline:auto}
-
-    footer{color:var(--muted);font-size:14px;text-align:right}
-
-    .nowrap{white-space:nowrap}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-
-    /* ===== Mobile (fix header overlap) ===== */
-    @media (max-width: 880px){
-      .grid.cols-3{grid-template-columns:1fr}
-      .topbar{flex-direction:column;align-items:stretch;gap:12px}
-      .id{align-items:flex-start}
-      .avatar{width:88px}
-      /* Make link chips a tidy 2-col grid so they never collide with the name */
-      .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-      .links .chip{width:100%} /* full-width buttons inside grid cells */
-      /* Cards stack media on top */
-      .card{flex-direction:column}
-      .card .thumb{width:100%;max-width:100%;border-right:0;border-bottom:1px solid var(--border);aspect-ratio:var(--thumb-ar);max-height:var(--thumb-h-m)}
-      .card .thumb.logo{aspect-ratio:auto;max-height:var(--logo-h-m);height:var(--logo-h-m);padding:10px;object-fit:contain}
-    }
-
-    /* ===== Desktop Mobile-Preview mode (force phone layout) ===== */
-    body[data-preview="mobile"] .container{max-width:420px}
-    body[data-preview="mobile"] .topbar{flex-direction:column;align-items:stretch;gap:12px}
-    body[data-preview="mobile"] .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    body[data-preview="mobile"] .links .chip{width:100%}
-    body[data-preview="mobile"] .card{flex-direction:column}
-    body[data-preview="mobile"] .card .thumb{width:100%;max-width:100%;border-right:0;border-bottom:1px solid var(--border);aspect-ratio:var(--thumb-ar);max-height:var(--thumb-h-m)}
-    body[data-preview="mobile"] .card .thumb.logo{aspect-ratio:auto;max-height:var(--logo-h-m);height:var(--logo-h-m);padding:10px;object-fit:contain}
-
-    @media print{
-      .panel,.card,.affil{box-shadow:none}
-      a{color:inherit;text-decoration:underline}
-    }
-  </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -148,12 +50,13 @@
           </div>
         </div>
         <nav class="links" aria-label="Primary">
+          <button type="button" class="theme-toggle" id="themeToggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">
+            <span class="icon-sun" aria-hidden="true">☀️</span>
+            <span class="icon-moon" aria-hidden="true">🌙</span>
+          </button>
           <a class="chip" href="mailto:dwivedi7@stanford.edu">Email</a>
-          <!-- <a class="chip" href="data/ArpitDwivedi-CV.pdf">CV</a> -->
           <a class="chip" href="https://scholar.google.com/citations?user=bTxIik4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
           <a class="chip" href="https://github.com/Dwivedi07/" target="_blank" rel="noopener">GitHub</a>
-          <!-- Mobile preview toggle -->
-          <button class="chip" id="viewToggle" aria-pressed="false" title="Toggle mobile preview">📱 Mobile preview</button>
         </nav>
       </div>
     </header>
@@ -480,43 +383,6 @@
     </footer>
   </div>
 
-  <!-- Mobile preview toggle logic -->
-  <script>
-    (function () {
-      const key = 'preview-mode';
-      const btn = document.getElementById('viewToggle');
-
-      function setMode(mode) {
-        if (mode === 'mobile') {
-          document.body.setAttribute('data-preview', 'mobile');
-          btn.setAttribute('aria-pressed', 'true');
-          btn.textContent = '💻 Desktop preview';
-          localStorage.setItem(key, 'mobile');
-        } else {
-          document.body.removeAttribute('data-preview');
-          btn.setAttribute('aria-pressed', 'false');
-          btn.textContent = '📱 Mobile preview';
-          localStorage.setItem(key, 'desktop');
-        }
-      }
-
-      // Initial state from query param or localStorage
-      const params = new URLSearchParams(location.search);
-      const qp = params.get('preview');
-      const saved = localStorage.getItem(key);
-
-      if (qp === 'mobile' || saved === 'mobile') {
-        setMode('mobile');
-      } else {
-        setMode('desktop');
-      }
-
-      // Toggle on click
-      btn.addEventListener('click', () => {
-        const isMobile = document.body.getAttribute('data-preview') === 'mobile';
-        setMode(isMobile ? 'desktop' : 'mobile');
-      });
-    })();
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -143,10 +143,8 @@ span.highlight {
 
 heading {
   font-size: 24px;
-  font-weight: bold; /* Optional: Make the text bold */
+  font-weight: bold;
 }
-
-
 
 /* ===== Force-highlight award paper card ===== */
 .card.card-award {
@@ -155,12 +153,10 @@ heading {
   box-shadow: 0 8px 24px rgba(56, 142, 60, 0.25) !important;
 }
 
-/* In case .card-body has its own background */
 .card.card-award .card-body {
   background-color: transparent !important;
 }
 
-/* Award label */
 .card.card-award .award-slab {
   display: inline-block;
   margin: 6px 0 10px 0;
